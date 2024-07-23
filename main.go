@@ -38,29 +38,29 @@ func main() {
 		}
 		if os.Args[2] == "--node" {
 			fmt.Println("Initializing OSH node project...")
-			clone_repo("git@github.com:opensensorhub/osh-node-dev-template.git", "master", "node")
+			cloneRepo("git@github.com:opensensorhub/osh-node-dev-template.git", "master", "node")
 
 		} else if os.Args[2] == "--client" {
 			fmt.Println("Initializing OSH client project...")
-			clone_repo("git@github.com:opensensorhub/osh-client-dev-template.git", "master", "client")
+			cloneRepo("git@github.com:opensensorhub/osh-client-dev-template.git", "master", "client")
 
 		} else if os.Args[2] == "--viewer" {
 			fmt.Println("Initializing OSH viewer project...")
-			clone_repo("git@github.com:opensensorhub/osh-viewer.git", "main", "viewer")
+			cloneRepo("git@github.com:opensensorhub/osh-viewer.git", "main", "viewer")
 
 		}
+
+	case "version":
+		fmt.Println("OpenSensorHub Setup Tool v0.1.0")
 	}
+
 }
 
 func init() {
 	fmt.Println("OpenSensorHub Setup Tool v0.1.0")
 }
 
-func arg_init() {
-
-}
-
-func clone_repo(repoUrl, branch, dir string) {
+func cloneRepo(repoUrl, branch, dir string) {
 	opts := &git.CloneOptions{
 		URL:               repoUrl,
 		RecurseSubmodules: git.DefaultSubmoduleRecursionDepth,
